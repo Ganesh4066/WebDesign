@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Management</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <button class="menu-btn">
+          <img src="icons/ham.png" alt="Menu" />
+        </button>
+        <div class="nav-items">
+          <span>Menu</span>
+          <button class="customize-btn">Customize</button>
+          <span>Manage QR</span>
+        </div>
+        <div class="nav-actions">
+          <button class="add-item-btn">
+            <img src="icons/add-circle.png" alt="Add Item" />
+            Add Item
+          </button>
+          <button class="import-btn">
+            <img src="icons/import.png" alt="Import" />
+            Import
+          </button>
+          <button class="scan-menu-btn">
+            <img src="icons/camera.png" alt="Scan Menu" />
+            Scan Menu
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="tabs">
+        <button class="tab active">Categories</button>
+        <button class="tab">Modification sets</button>
+      </div>
+
+      <div class="content-container">
+        <div class="category-section">
+          <div class="section-header">
+            <h2>Category</h2>
+            <button class="add-btn" id="addCategoryBtn">
+              <img src="icons/add-circle.png" alt="Add" />
+              Add
+            </button>
+          </div>
+
+          <div class="category-list">
+            <div class="category-item">
+              <span>Appetizer</span>
+              <div class="item-actions">
+                <button class="edit-btn">
+                  <img src="icons/edit-2.png" alt="Edit" />
+                </button>
+                <button class="delete-btn">
+                  <img src="icons/trash.png" alt="Delete" />
+                </button>
+              </div>
+            </div>
+            <div class="category-item">
+              <span>Beverage</span>
+              <div class="item-actions">
+                <button class="edit-btn">
+                  <img src="icons/edit-2.png" alt="Edit" />
+                </button>
+                <button class="delete-btn">
+                  <img src="icons/trash.png" alt="Delete" />
+                </button>
+              </div>
+            </div>
+            <div class="category-item selected">
+              <span>Food</span>
+              <div class="item-actions">
+                <button class="edit-btn">
+                  <img src="icons/edit-2.png" alt="Edit" />
+                </button>
+                <button class="delete-btn">
+                  <img src="icons/trash.png" alt="Delete" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subcategory-section">
+          <div class="section-header">
+            <h2>Subcategory</h2>
+            <button class="add-btn">
+              <img src="icons/add-circle.png" alt="Add" />
+              Add
+            </button>
+          </div>
+          <div class="empty-state">
+            <p>No subcategory has been created.</p>
+            <p class="hint">Click "add" to create custom subcategories</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Delete Confirmation Card -->
+    <div class="modal" id="deleteCard">
+      <div class="card">
+        <button class="close-btn" id="closeBtn" aria-label="Close dialog">
+          <img src="icons/big.png" alt="Close" />
+        </button>
+        <h3 id="dialogTitle">Delete category</h3>
+        <p id="dialogDescription">
+          All menu items not reassigned to a new category will be permanently
+          deleted from the menu.
+        </p>
+        <label class="checkbox-container">
+          <input type="checkbox" id="deleteCheckbox" />
+          Delete all associated menu items
+        </label>
+        <button class="confirm-btn" id="confirmBtn" disabled>Confirm</button>
+      </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal" id="addCategoryModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span>Add category</span>
+          <button class="close" id="closeAddCategoryModal">
+            <img src="icons/big.png" alt="Close" />
+          </button>
+        </div>
+        <div class="input-group">
+          <label for="category">Category name</label>
+          <input type="text" id="category" placeholder="Enter category name" />
+        </div>
+        <button class="create-btn">Create</bu
